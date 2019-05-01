@@ -9,12 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // テキストフィールド
     @IBOutlet weak var textFieldValue: UITextField!
     
+    // ボタンをクリックした際のアクション
     @IBAction func onClickButton(_ sender: Any) {
         self.textFieldValue.text = "Hello"
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
