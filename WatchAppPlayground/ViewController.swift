@@ -2,39 +2,24 @@
 //  ViewController.swift
 //  WatchAppPlayground
 //
-//  Created by 香川 卓哉 on 2019/04/30.
+//  Created by 香川 卓哉 on 2019/05/02.
 //  Copyright © 2019 Takuya Kagawa. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
-    // テキストフィールド
-    @IBOutlet weak var textFieldValue: UITextField!
+    // ラベル
+    @IBOutlet weak var viewLabel: UILabel!
     
-    // ボタンをクリックした際のアクション
-    @IBAction func onClickButton(_ sender: Any) {
-        self.textFieldValue.text = "Hello"
-    }
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+    // 受け取ったラベル文字列
+    var receiveLabel: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        collectionView.dataSource = self
-    }
-}
-
-extension ViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
         
-        return cell
+        // ラベルへ文字列を渡す
+        viewLabel.text = receiveLabel
     }
 }
