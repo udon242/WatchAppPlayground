@@ -7,6 +7,7 @@ target 'WatchAppPlayground' do
 
   # Pods for WatchAppPlayground
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'WatchAppPlaygroundTests' do
     inherit! :search_paths
