@@ -16,6 +16,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate {
     
     // 遷移先のラベルに渡す文字列
     var giveViewLabel: String = "ラベル初期値"
+    var giveIndex: Int = 0;
     
     // ボタンをクリックした際のアクション
     @IBAction func onClickButton(_ sender: Any) {
@@ -29,8 +30,9 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(String(indexPath.item + 1) + "番のセルがクリックされたよ")
         
-        // 遷移先へ渡す文字列を設定
+        // 遷移先へ渡す値を設定
         giveViewLabel = data[indexPath.item]
+        giveIndex = indexPath.item
         
         // ページ遷移
         performSegue(withIdentifier: "ViewSegue", sender: nil)
@@ -45,10 +47,11 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // 遷移先のLabelへ文字列を渡す
+        // 遷移先へ値を渡す
         if (segue.identifier == "ViewSegue") {
             let vc = segue.destination as! ViewController
             vc.receiveLabel = giveViewLabel
+            vc.index = giveIndex
         }
     }
 }
